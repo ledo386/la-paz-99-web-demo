@@ -22,10 +22,42 @@ menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.
 const dialog=document.querySelector('#appointment'),info=document.querySelector('#info-dialog'),form=document.querySelector('#booking-form'),confirmation=document.querySelector('#confirmation'),summary=document.querySelector('#summary'),copyStatus=document.querySelector('#copy-status');let lastTrigger;
 function showDialog(d){lastTrigger=document.activeElement;d.showModal();document.body.classList.add('modal-open');}
 function resetView(){form.hidden=false;confirmation.hidden=true;copyStatus.textContent='';}
-document.querySelectorAll('[data-book]').forEach(btn=>btn.addEventListener('click',()=>{form.reset();resetView();if(btn.dataset.service)serviceSelect.value=btn.dataset.service;showDialog(dialog);}));
+document.querySelectorAll('[data-book]').forEach(btn=>btn.addEventListener('click',()=>{form.reset();resetView();if(btn.dataset.service)serviceSelect.value=btn.dataset.service;if(btn.dataset.message)form.elements.mensaje.value=btn.dataset.message;showDialog(dialog);}));
 document.querySelector('#demo-info').addEventListener('click',()=>showDialog(info));
 [dialog,info].forEach(d=>{d.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>d.close()));d.addEventListener('click',e=>{if(e.target===d)d.close();});d.addEventListener('close',()=>{document.body.classList.remove('modal-open');if(lastTrigger)lastTrigger.focus();});});
 form.addEventListener('submit',e=>{e.preventDefault();if(!form.reportValidity())return;const f=new FormData(form);summary.textContent=`Hola, me gustaría consultar una cita en Talleres La Paz 99.\n\nNombre: ${f.get('nombre')}\nVehículo: ${f.get('vehiculo')}\nServicio: ${f.get('servicio')}\nObservaciones: ${f.get('mensaje')||'Sin observaciones.'}\n\nGracias.`;form.hidden=true;confirmation.hidden=false;document.querySelector('#copy-request').focus();});
 document.querySelector('#edit-request').addEventListener('click',()=>{resetView();form.querySelector('input').focus();});
 document.querySelector('#copy-request').addEventListener('click',async()=>{try{if(!navigator.clipboard)throw Error('Clipboard unavailable');await navigator.clipboard.writeText(summary.textContent);copyStatus.textContent='Solicitud copiada. No se ha enviado.';}catch{const area=document.createElement('textarea');area.value=summary.textContent;confirmation.append(area);area.select();let ok=false;try{ok=document.execCommand('copy');}catch{}if(ok){area.remove();copyStatus.textContent='Solicitud copiada. No se ha enviado.';}else{copyStatus.textContent='Selecciona y copia manualmente el texto.';}}});
 if('IntersectionObserver' in window){const links=[...nav.querySelectorAll('a')];const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){links.forEach(a=>a.classList.toggle('active',a.hash==='#'+entry.target.id));}});},{rootMargin:'-20% 0px -55% 0px'});document.querySelectorAll('main section[id]').forEach(s=>observer.observe(s));}
+
+ 
+// Ejemplos filtrables; no se atribuyen trabajos reales al taller.
+const caseFilters=[...document.querySelectorAll('[data-case-filter]')];
+const caseCards=[...document.querySelectorAll('[data-case-category]')];
+caseFilters.forEach(btn=>btn.addEventListener('click',()=>{
+ const category=btn.dataset.caseFilter;
+ caseFilters.forEach(b=>{const selected=b===btn;b.classList.toggle('active',selected);b.setAttribute('aria-pressed',String(selected));});
+ let count=0;caseCards.forEach(card=>{card.hidden=category!=='todos'&&card.dataset.caseCategory!==category;if(!card.hidden)count++;});
+ const status=document.querySelector('#case-count');if(status)status.textContent=count===1?'1 ejemplo ilustrativo disponible.':count+' ejemplos ilustrativos disponibles.';
+}));
+// Preparación de una consulta: orienta sobre qué describir, no diagnostica.
+const symptoms={
+ motor:['Consulta de mecánica general','Describe el ruido, cuándo aparece y si has notado una pérdida de potencia. Un profesional deberá comprobar el vehículo.','Mecánica general','He notado ruidos o pérdida de potencia.'],
+ arranque:['Consulta de electricidad','Indica si el coche tarda en arrancar, si el problema es intermitente y desde cuándo ocurre. No presupone una avería de batería.','Electricidad','Tengo dificultades al arrancar el vehículo.'],
+ testigo:['Consulta de diagnosis','Explica qué aviso aparece y consulta el manual del vehículo. Si el aviso indica detenerse, no continúes conduciendo.','Diagnosis de averías','Ha aparecido un aviso o testigo en el cuadro.'],
+ ruedas:['Consulta sobre ruedas','Describe cuándo aparecen las vibraciones o qué cambios has notado en los neumáticos. Si afecta a la seguridad, no circules.','Neumáticos','He notado vibraciones o cambios en las ruedas.'],
+ revision:['Consulta de mantenimiento','Ten preparado el kilometraje y, si lo sabes, la fecha del último mantenimiento. Los intervalos dependen del fabricante.','Mantenimiento','Quiero consultar el mantenimiento de mi vehículo.']
+};
+const symptomButtons=[...document.querySelectorAll('[data-symptom]')];
+function selectSymptom(btn){
+ const data=symptoms[btn.dataset.symptom];if(!data)return;
+ symptomButtons.forEach(b=>{const active=b===btn;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
+ document.querySelector('#symptom-title').textContent=data[0];document.querySelector('#symptom-text').textContent=data[1];
+ const booking=document.querySelector('#symptom-book');booking.dataset.service=data[2];booking.dataset.message=data[3];
+}
+symptomButtons.forEach(btn=>btn.addEventListener('click',()=>selectSymptom(btn)));
+if(symptomButtons.length)selectSymptom(symptomButtons[0]);
+// Checklist de visita, exclusivamente local en memoria de la página.
+const checks=[...document.querySelectorAll('#visit-checklist input[type=checkbox]')];
+function updateChecklist(){const count=checks.filter(c=>c.checked).length;const progress=document.querySelector('#check-progress');if(!progress)return;progress.value=count;document.querySelector('#check-count').textContent=count+' de '+checks.length+' preparados';}
+checks.forEach(c=>c.addEventListener('change',updateChecklist));document.querySelector('#check-reset')?.addEventListener('click',()=>{checks.forEach(c=>{c.checked=false;});updateChecklist();});updateChecklist();
