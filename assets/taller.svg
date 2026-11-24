@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 760" fill="none">
+<defs>
+ <linearGradient id="wall" x2="0" y2="1"><stop stop-color="#363c3d"/><stop offset="1" stop-color="#171b1b"/></linearGradient>
+ <linearGradient id="body" x1="0" y1="0" x2="0.28" y2="1"><stop stop-color="#c7c4b5"/><stop offset=".36" stop-color="#777b75"/><stop offset=".5" stop-color="#3c4544"/><stop offset=".77" stop-color="#79807a"/><stop offset="1" stop-color="#252e2e"/></linearGradient>
+ <linearGradient id="hood" x1="0" x2="1" y2="1"><stop stop-color="#b2b4a6"/><stop offset=".55" stop-color="#626c67"/><stop offset="1" stop-color="#333c3a"/></linearGradient>
+ <linearGradient id="glass" x2="1" y2="1"><stop stop-color="#91a19b"/><stop offset=".45" stop-color="#263b3d"/><stop offset="1" stop-color="#0c1518"/></linearGradient>
+ <radialGradient id="tyre"><stop stop-color="#6d7470"/><stop offset=".48" stop-color="#262d2e"/><stop offset=".56" stop-color="#111818"/><stop offset=".83" stop-color="#303636"/><stop offset="1" stop-color="#101415"/></radialGradient>
+ <radialGradient id="light"><stop stop-color="#f9d494" stop-opacity=".22"/><stop offset="1" stop-color="#f9d494" stop-opacity="0"/></radialGradient>
+ <pattern id="lines" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M42 0H0V42" stroke="#e2dfca" stroke-opacity=".065"/></pattern>
+ <pattern id="brick" width="140" height="58" patternUnits="userSpaceOnUse"><path d="M0 0H140M0 29H140M70 0V29M0 29V58" stroke="#c4c3ad" stroke-opacity=".07"/></pattern>
+ <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".65" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+ <g id="wheel"><circle r="80" fill="#0c1112" stroke="#444a46" stroke-width="2"/><circle r="73" fill="url(#tyre)"/><circle r="49" fill="#aaa99a" stroke="#555d57" stroke-width="5"/><circle r="40" fill="#303a39"/><g fill="#a5a99f"><path d="M-8-43H8L5-12H-5Z"/><path d="M-8-43H8L5-12H-5Z" transform="rotate(72)"/><path d="M-8-43H8L5-12H-5Z" transform="rotate(144)"/><path d="M-8-43H8L5-12H-5Z" transform="rotate(216)"/><path d="M-8-43H8L5-12H-5Z" transform="rotate(288)"/></g><circle r="12" fill="#c5c2b0" stroke="#525a56" stroke-width="3"/><circle r="4" fill="#252b2a"/></g>
+</defs>
+<path fill="url(#wall)" d="M0 0h1000v760H0z"/><path fill="url(#brick)" d="M0 0h1000v560H0z"/>
+<!-- Architectural workshop, not a depiction of actual premises -->
+<path d="M0 0H1000V80L0 160Z" fill="#1b2020"/><path d="M125 0V700M835 0V650" stroke="#12191a" stroke-width="30"/><path d="M140 0V665M850 0V640" stroke="#555b55" stroke-width="3"/>
+<path d="M185 104H615L640 117H203Z" fill="#e9dfbc"/><path d="M185 104H615" stroke="#fbf0ce" stroke-width="5"/><ellipse cx="420" cy="275" rx="400" ry="310" fill="url(#light)"/>
+<path d="M651 80H940V525H651Z" fill="#202626" stroke="#6a6d61" stroke-width="5"/><path d="M671 100H920V505H671Z" fill="#343a38"/>
+<path d="M671 130H920M671 160H920M671 190H920M671 220H920M671 250H920M671 280H920M671 310H920M671 340H920M671 370H920M671 400H920M671 430H920M671 460H920M671 490H920" stroke="#1c2423" stroke-width="3"/>
+<path d="M0 550H1000V760H0Z" fill="#333b39"/><path d="M0 550H1000M500 550L100 760M690 550L650 760M860 550L1000 745M0 648H1000" stroke="#a1a28f" stroke-opacity=".16" stroke-width="2"/>
+<path d="M16 598L130 580H325L245 600Z" fill="#b38248" opacity=".7"/>
+<!-- Toolbox and lift -->
+<path d="M40 309H160V518H40Z" fill="#643a29" stroke="#b66e42" stroke-width="3"/><path d="M40 329H160M40 367H160M40 404H160M40 442H160M40 480H160" stroke="#c89c6c" stroke-width="3"/><path d="M76 347H127M76 385H127M76 422H127M76 460H127" stroke="#b8b5a3" stroke-width="4"/>
+<path d="M890 165H940V610H890Z" fill="#8a6035"/><path d="M904 180V596" stroke="#caa66b" stroke-width="3"/><path d="M915 550L800 582H667" stroke="#b88b4b" stroke-width="15"/>
+<ellipse cx="524" cy="600" rx="411" ry="54" fill="#111817" opacity=".7"/>
+<!-- Car, three-quarter side/front -->
+<path d="M150 466L192 404L295 372L365 294Q393 266 443 261L618 255Q667 254 706 294L779 369L872 392Q909 404 919 444L931 511L913 546L866 562L831 562Q824 481 759 479Q688 477 680 562L390 574Q384 488 311 489Q235 492 232 574L164 564L142 535Z" fill="url(#body)" stroke="#a5ad9f" stroke-width="2.5"/>
+<path d="M303 374L379 296Q402 277 448 275L608 269Q649 267 682 299L752 369Z" fill="url(#glass)" stroke="#c6c8b6" stroke-width="4"/>
+<path d="M458 275L438 374M614 270L642 371M683 300L753 369" stroke="#242f30" stroke-width="9"/>
+<path d="M389 301L334 358L449 352L465 285" fill="#d8ddcc" opacity=".1"/>
+<path d="M150 466L230 429L805 404L872 392L901 411L902 435L811 450L260 468L151 502Z" fill="url(#hood)"/>
+<path d="M154 502L270 472L823 452L919 444M394 555L675 545M459 376L442 540M643 374L658 540" stroke="#242f2f" stroke-width="3"/>
+<path d="M161 523L228 509M396 535L680 525M832 519L930 497" stroke="#b4b8a8" stroke-opacity=".65" stroke-width="3"/>
+<path d="M468 407H516M655 402H702" stroke="#d0ccba" stroke-width="5" stroke-linecap="round"/>
+<path d="M788 371L771 353L742 353L744 377Z" fill="#505d56" stroke="#a9ad9d" stroke-width="2"/>
+<path d="M836 458L918 444L923 465L848 482Z" fill="#e0cda2" stroke="#c3bfa8" stroke-width="2"/>
+<path d="M853 488L924 474L928 494L858 509Z" fill="#202a2b"/><path d="M860 491L925 480M862 498L927 486" stroke="#777f75" stroke-width="2"/>
+<path d="M161 505L205 489L219 506L169 524Z" fill="#ac6043"/>
+<use href="#wheel" transform="translate(310 554) scale(.98 1.02)"/><use href="#wheel" transform="translate(759 548) scale(.99 1.04)"/>
+<path d="M234 563Q234 478 311 478Q386 477 390 563M680 553Q683 467 759 467Q832 468 835 553" stroke="#b2b5a5" stroke-width="3"/>
+<!-- Blueprint annotation layer -->
+<path d="M0 0H1000V760H0Z" fill="url(#lines)"/>
+<path d="M320 195H490L545 270M818 247H756L715 315M245 671H310V626M780 670H759V629" stroke="#dfb474" stroke-width="1.5" stroke-dasharray="6 6"/>
+<g fill="#e7bb7b" font-family="monospace" font-size="15" letter-spacing="2"><text x="319" y="185">01 / MECÁNICA</text><text x="759" y="237">02 / DIAGNOSIS</text><text x="110" y="678">03 / FRENOS</text><text x="782" y="678">04 / RUEDAS</text></g>
+<path d="M40 90V40H90M910 40H960V90M40 670V720H90M910 720H960V670" stroke="#d9b17a" stroke-width="2"/>
+<rect width="1000" height="760" filter="url(#grain)" opacity=".10" style="mix-blend-mode:soft-light"/>
+</svg>

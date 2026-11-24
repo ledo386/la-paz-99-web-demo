@@ -1,0 +1,28 @@
+TALLERES LA PAZ 99 — DEMO PRIVADA
+=================================
+
+1. Extrae el ZIP completo.
+2. Abre index.html con Chrome, Edge o Firefox. No necesita servidor ni instalación.
+3. También puedes abrir la carpeta en VS Code y usar Live Server.
+
+Archivos: index.html (estructura), style.css (diseño responsive), script.js
+(interacción), assets/ (ilustración y marca gráfica provisional en SVG).
+No usa librerías externas, cookies de seguimiento, base de datos ni backend.
+La solicitud de cita se simula en local y no envía información.
+
+ANTES DE PUBLICAR
+- Obtener permiso del propietario y sustituir marca/ilustración por el logo y fotografías reales si lo desea.
+- Confirmar teléfonos, servicios, dirección física (Reinosa 16 frente a domicilio social en Nazaret 17), horarios y datos legales.
+- Confirmar condiciones para citas online, configurar un canal de recepción y política de privacidad si se recaban datos.
+- Revisar las valoraciones y el permiso/condiciones de uso si se insertan reseñas textuales.
+- Cambiar noindex solo después de aprobación, configurar dominio, SEO y aviso legal.
+
+FUENTES PÚBLICAS CONSULTADAS (24/11/2026)
+Servicios históricos: https://www.findglocal.com/ES/Fuenlabrada/1553174421562606/Talleres-La-Paz
+Valoraciones y móvil comercial: https://guiatalleres.com/talleres/la-paz-99/
+Teléfono fijo y contacto: https://www.todosbiz.es/talleres-la-paz-916-06-78-46
+Administración desde 2014: https://www.boe.es/diario_borme/txt.php?id=BORME-A-2014-228-28
+Cambio de domicilio social: https://www.boe.es/diario_borme/txt.php?id=BORME-A-2026-64-28
+
+El concepto visual no representa el logotipo ni las instalaciones reales. No se
+ha inventado fecha de fundación: 99 es parte del nombre comercial.
