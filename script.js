@@ -18,7 +18,7 @@ services.forEach(([name,description,icon],i)=>{
 const other=document.createElement('option');other.value='Otra consulta';other.textContent='Otra consulta / No lo sé';serviceSelect.append(other);
 const menu=document.querySelector('.menu'),nav=document.querySelector('#navigation');
 function closeMenu(){nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Abrir menú');}
-menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú');});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
+menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú');});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));document.querySelector('.header .brand').addEventListener('click',closeMenu);document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
 const dialog=document.querySelector('#appointment'),info=document.querySelector('#info-dialog'),form=document.querySelector('#booking-form'),confirmation=document.querySelector('#confirmation'),summary=document.querySelector('#summary'),copyStatus=document.querySelector('#copy-status');let lastTrigger;
 function showDialog(d){lastTrigger=document.activeElement;d.showModal();document.body.classList.add('modal-open');}
 function resetView(){form.hidden=false;confirmation.hidden=true;copyStatus.textContent='';}
